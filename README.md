@@ -24,6 +24,7 @@ Software engineering principles, from Robert C. Martin's book
 [_Clean Code_](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
 adapted for JavaScript. This is not a style guide. It's a guide to producing
 [readable, reusable, and refactorable](https://github.com/ryanmcdermott/3rs-of-software-architecture) software in JavaScript.
+软件工程原则，来自Robert C. Martin的[《Clean Code》](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)一书，适合于JavaScript。这不是一个风格指南。它是一份用JavaScript制作[可读的、可重用的和可重构的](https://github.com/ryanmcdermott/3rs-of-software-architecture)软件的指南。
 
 Not every principle herein has to be strictly followed, and even fewer will be
 universally agreed upon. These are guidelines and nothing more, but they are
@@ -43,9 +44,9 @@ shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
-## **Variables**
+## **Variables**  **变量**
 
-### Use meaningful and pronounceable variable names
+### Use meaningful and pronounceable variable names  使用有意义的、可读的变量名称
 
 **Bad:**
 
@@ -1378,7 +1379,7 @@ class Employee {
 
 ## **SOLID**
 
-### Single Responsibility Principle (SRP)
+### Single Responsibility Principle (SRP)  单一职责原则（SRP）
 
 As stated in Clean Code, "There should never be more than one reason for a class
 to change". It's tempting to jam-pack a class with a lot of functionality, like
@@ -1388,6 +1389,7 @@ to change. Minimizing the amount of times you need to change a class is importan
 It's important because if too much functionality is in one class and you modify
 a piece of it, it can be difficult to understand how that will affect other
 dependent modules in your codebase.
+正如《代码简洁之道》中所说的，"一个类的变化不应该有一个以上的理由"。用大量的功能来塞满一个类是很诱人的，就像你在飞机上只能带一个手提箱一样。这样做的问题是，你的类在概念上不会有凝聚力，而且会让它有很多理由去改变。尽量减少你需要改变一个类的次数是很重要的。这很重要，因为如果有太多的功能在一个类中，而你修改了其中的一个部分，那么就很难知道这将如何影响你代码库中的其他依赖模块。
 
 **Bad:**
 
@@ -1444,6 +1446,8 @@ As stated by Bertrand Meyer, "software entities (classes, modules, functions,
 etc.) should be open for extension, but closed for modification." What does that
 mean though? This principle basically states that you should allow users to
 add new functionalities without changing existing code.
+正如Bertrand Meyer所说，"软件实体（类、模块、函数等）应该是开放的，可以扩展，但不可以修改"。但这是什么意思呢？这个原则基本上说明，你应该允许用户在不改变现有代码的情况下增加新的功能。
+
 
 **Bad:**
 
@@ -1529,13 +1533,14 @@ class HttpRequester {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Liskov Substitution Principle (LSP)
+### Liskov Substitution Principle (LSP)  里氏替换原则(LSP)
 
 This is a scary term for a very simple concept. It's formally defined as "If S
 is a subtype of T, then objects of type T may be replaced with objects of type S
 (i.e., objects of type S may substitute objects of type T) without altering any
 of the desirable properties of that program (correctness, task performed,
 etc.)." That's an even scarier definition.
+这是一个非常简单的概念，但却有一个可怕的术语。它被正式定义为：“如果S是T的子类型，则可以用类型S的对象替换类型T的对象（即，类型S的对象可以代替类型T的对象），而不会改变该程序任何期望具备的属性（正确性、执行任务等）。” 这个定义甚至更加可怕。
 
 The best explanation for this is if you have a parent class and a child class,
 then the base class and child class can be used interchangeably without getting
@@ -1543,6 +1548,7 @@ incorrect results. This might still be confusing, so let's take a look at the
 classic Square-Rectangle example. Mathematically, a square is a rectangle, but
 if you model it using the "is-a" relationship via inheritance, you quickly
 get into trouble.
+最好的解释是，如果你有一个父类和一个子类，那么基类和子类可以互换使用而不会得到错误的结果。这可能仍然令人困惑，因此让我们来看一下经典的正方形-矩形例子。从数学上讲，正方形是矩形，但如果你使用继承中的“is-a”关系对其进行建模，则很快就会遇到麻烦。
 
 **Bad:**
 
@@ -1653,16 +1659,19 @@ renderLargeShapes(shapes);
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
 as others. However, it's important and relevant even with JavaScript's lack of
 type system.
+JavaScript没有接口，所以这个原则并不像其他原则那样严格适用。然而，即使JavaScript没有类型系统，它也是重要的，而且是相关的。
 
 ISP states that "Clients should not be forced to depend upon interfaces that
 they do not use." Interfaces are implicit contracts in JavaScript because of
 duck typing.
+ISP指出，"不应该强迫客户依赖他们不使用的接口"。接口是JavaScript中的隐性契约，由于鸭子的类型。
 
 A good example to look at that demonstrates this principle in JavaScript is for
 classes that require large settings objects. Not requiring clients to setup
 huge amounts of options is beneficial, because most of the time they won't need
 all of the settings. Making them optional helps prevent having a
 "fat interface".
+在JavaScript中展示这一原则的一个好例子是需要大量设置对象的类。不要求客户端设置大量的选项是有益的，因为大多数时候他们不需要所有的设置。让它们是可选的，有助于防止出现 "肥胖接口"。
 
 **Bad:**
 
@@ -1726,7 +1735,7 @@ const $ = new DOMTraverser({
 
 **[⬆ back to top](#table-of-contents)**
 
-### Dependency Inversion Principle (DIP)
+### Dependency Inversion Principle (DIP)  依赖倒置原则（DIP）
 
 This principle states two essential things:
 
@@ -1734,6 +1743,11 @@ This principle states two essential things:
    depend on abstractions.
 2. Abstractions should not depend upon details. Details should depend on
    abstractions.
+   
+这个原则阐述了两个重要的事情：
+
+高层模块不应该依赖于低层模块，它们都应该依赖于抽象。
+抽象不应该依赖于细节，而是细节应该依赖于抽象。
 
 This can be hard to understand at first, but if you've worked with AngularJS,
 you've seen an implementation of this principle in the form of Dependency
@@ -1742,12 +1756,14 @@ modules from knowing the details of its low-level modules and setting them up.
 It can accomplish this through DI. A huge benefit of this is that it reduces
 the coupling between modules. Coupling is a very bad development pattern because
 it makes your code hard to refactor.
+一开始可能很难理解，但如果你使用过AngularJS，就已经在依赖注入（DI）的形式中看到了这个原则的实现。虽然它们不是完全相同的概念，但DIP可以通过DI来避免高级模块知道其低级模块的细节并设置它们。其中一个巨大的好处是减少了模块之间的耦合度。耦合度是一种非常糟糕的开发模式，因为它使得代码难以重构。
 
 As stated previously, JavaScript doesn't have interfaces so the abstractions
 that are depended upon are implicit contracts. That is to say, the methods
 and properties that an object/class exposes to another object/class. In the
 example below, the implicit contract is that any Request module for an
 `InventoryTracker` will have a `requestItems` method.
+如前所述，JavaScript 没有接口，因此依赖的抽象是隐式契约。也就是说，一个对象/类向另一个对象/类公开的方法和属性。在下面的示例中，隐式契约是任何 InventoryTracker 的 Request 模块都将具有 requestItems 方法。
 
 **Bad:**
 
@@ -1820,6 +1836,8 @@ class InventoryRequesterV2 {
 
 // By constructing our dependencies externally and injecting them, we can easily
 // substitute our request module for a fancy new one that uses WebSockets.
+// 通过在外部构建我们的依赖关系并将其注入，我们可以很容易地
+// 将我们的请求模块替换成一个使用WebSockets的新模块。
 const inventoryTracker = new InventoryTracker(
   ["apples", "bananas"],
   new InventoryRequesterV2()
@@ -1838,6 +1856,7 @@ to your team, but having 100% coverage (all statements and branches) is how
 you achieve very high confidence and developer peace of mind. This means that
 in addition to having a great testing framework, you also need to use a
 [good coverage tool](https://gotwarlost.github.io/istanbul/).
+测试比交付更重要。如果你没有足够的测试或者根本没有测试，那么每次你发布代码时都无法确定是否出现了问题。什么是足够的测试量由团队决定，但是达到100%覆盖率（所有语句和分支）可以让你获得非常高的信心和开发人员的安心感。这意味着除了拥有一个很好的测试框架外，还需要使用一个良好的覆盖工具。
 
 There's no excuse to not write tests. There are [plenty of good JS test frameworks](https://jstherightway.org/#testing-tools), so find one that your team prefers.
 When you find one that works for your team, then aim to always write tests
@@ -1845,8 +1864,9 @@ for every new feature/module you introduce. If your preferred method is
 Test Driven Development (TDD), that is great, but the main point is to just
 make sure you are reaching your coverage goals before launching any feature,
 or refactoring an existing one.
+没有理由不写测试。有很多好的JS测试框架，所以你可以找到一个你团队喜欢的。当你找到适合你团队的框架后，就要始终为引入的每个新功能/模块编写测试。如果您首选的方法是测试驱动开发（TDD），那太棒了，但主要目标是确保在启动任何功能或重构现有功能之前达到覆盖率目标。
 
-### Single concept per test
+### Single concept per test  每个测试只涉及一个概念
 
 **Bad:**
 
@@ -1900,12 +1920,13 @@ describe("MomentJS", () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Concurrency**
+## **Concurrency** **并发**
 
-### Use Promises, not callbacks
+### Use Promises, not callbacks 使用Promise，而非回调
 
 Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
 Promises are a built-in global type. Use them!
+回调函数不够简洁，会导致过多的嵌套。在ES2015/ES6中，Promise是一种内置的全局类型。请使用它们！
 
 **Bad:**
 
@@ -1951,13 +1972,14 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
 
 **[⬆ back to top](#table-of-contents)**
 
-### Async/Await are even cleaner than Promises
+### Async/Await are even cleaner than Promises  Async/Await比Promises更简洁
 
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
 which offer an even cleaner solution. All you need is a function that is prefixed
 in an `async` keyword, and then you can write your logic imperatively without
 a `then` chain of functions. Use this if you can take advantage of ES2017/ES8 features
 today!
+Promise是回调函数的一种非常干净的替代方案，但ES2017/ES8引入了async和await，提供了更加简洁的解决方案。你只需要在一个函数前面添加async关键字，然后就可以编写命令式逻辑而不需要then链式函数。如果您今天可以利用ES2017/ES8功能，请使用此方法！
 
 **Bad:**
 
@@ -2000,14 +2022,15 @@ getCleanCodeArticle()
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Error Handling**
+## **Error Handling**  **错误处理**
 
 Thrown errors are a good thing! They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
 you know by stopping function execution on the current stack, killing the
 process (in Node), and notifying you in the console with a stack trace.
+抛出的错误是一件好事！它们意味着运行时已经成功地识别了你的程序中出现的问题，并通过停止当前堆栈上的函数执行、杀死进程（在Node中）以及在控制台中用堆栈跟踪通知你来让你知道。
 
-### Don't ignore caught errors
+### Don't ignore caught errors 不要忽略捕获的错误
 
 Doing nothing with a caught error doesn't give you the ability to ever fix
 or react to said error. Logging the error to the console (`console.log`)
@@ -2015,6 +2038,7 @@ isn't much better as often times it can get lost in a sea of things printed
 to the console. If you wrap any bit of code in a `try/catch` it means you
 think an error may occur there and therefore you should have a plan,
 or create a code path, for when it occurs.
+对捕捉到的错误不做任何处理，就没有能力修复或应对上述错误。将错误记录到控制台（console.log）并没有好到哪里去，因为很多时候它可能会在打印到控制台的大量内容中丢失。如果你用try/catch包住任何一段代码，这意味着你认为那里可能会发生错误，因此你应该有一个计划，或创建一个代码路径，以应对错误的发生。
 
 **Bad:**
 
